@@ -11,6 +11,9 @@ app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// routers.use(methodOverride("_method"));
+// app.use('/',routers);
+
 app.get("/", userControllers.getUsers);
 
 app.post("/user", userControllers.newUser);

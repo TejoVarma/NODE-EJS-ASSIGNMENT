@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UsersList</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: rgba(41, 155, 41, 0.884);
+            padding: 20px 30px;
+            text-align: center;
+        }
+        h1{
+            color: white;
+        }
+        p{
+            color: white;
+        }
+        .btn-container{
+            margin: 10px;
+        }
+        #newuser-btn {
+            display: inline-block;
+            background: navy;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        #card-container {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-holder {
+            padding: 10px;
+            border: 1px solid black;
+            width: 80%;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .default-color {
+            color: yellow;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .card-btn-container {
+            padding-top: 10px;
+            display: flex;
+        }
+
+        .card-btn-container form button {
+            padding: 5px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .promotion{
+            background-color: green;
+            color: white;
+        }
+
+        .delete{
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Assignment 4</h1>
+        <p>Check who are promoted or demoted(if none, Add your data and make changes)</p>
+    </header>
+    <div id="card-container">
+        <% users.forEach(function(user){ %>
+            <% user.class=(user.promoted===null)? "default-color" : user.promoted ? "green" : "red" %>
+                <%- include('../cards/Card', {user: user}) %>
+                    <% }); %>
+    </div>
+    <button class="btn-container">
+        <a href="/adduser" id="newuser-btn">Add User</a>
+    </button>
+</body>
+
+</html>
